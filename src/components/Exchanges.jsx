@@ -1,87 +1,24 @@
 import React from 'react'
-import { Form, Input, Button, Checkbox } from 'antd';
+import BuyCrypto from './BuyCrypto'
 
-
-// const Exchanges = () => {
-    
-// }
-
+import { Balance } from "./Balance";
+import { AddTransaction } from './AddTransaction';
+import { Expense } from './Expense';
+import { TransactionList } from "./TransactionList";
 
 const Exchanges = () => {
-    const onFinish = (values) => {
-      console.log('Success:', values);
-    };
-  
-    const onFinishFailed = (errorInfo) => {
-      console.log('Failed:', errorInfo);
-    };
-  
     return (
-      <Form
-        name="basic"
-        labelCol={{
-          span: 8,
-        }}
-        wrapperCol={{
-          span: 16,
-        }}
-        initialValues={{
-          remember: true,
-        }}
-        onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
-        autoComplete="off"
-      >
-        <Form.Item
-          label="Username"
-          name="username"
-          rules={[
-            {
-              required: true,
-              message: 'Please input your username!',
-            },
-          ]}
-        >
-          <Input />
-        </Form.Item>
-  
-        <Form.Item
-          label="Password"
-          name="password"
-          rules={[
-            {
-              required: true,
-              message: 'Please input your password!',
-            },
-          ]}
-        >
-          <Input.Password />
-        </Form.Item>
-  
-        <Form.Item
-          name="remember"
-          valuePropName="checked"
-          wrapperCol={{
-            offset: 8,
-            span: 16,
-          }}
-        >
-          <Checkbox>Remember me</Checkbox>
-        </Form.Item>
-  
-        <Form.Item
-          wrapperCol={{
-            offset: 8,
-            span: 16,
-          }}
-        >
-          <Button type="primary" htmlType="submit">
-            Submit
-          </Button>
-        </Form.Item>
-      </Form>
-    );
-  };
-  
+      <>
+      <div class="flex flex-wrap -mx-3 overflow-hidden sm:-mx-2 md:-mx-2">
+<div class="my-3 px-3 w-1/2 overflow-hidden sm:my-2 sm:px-2 sm:w-full md:my-2 md:px-2 md:w-1/2">{<Balance/>}</div>
+<div class="my-3 px-3 w-1/2 overflow-hidden sm:my-2 sm:px-2 sm:w-full md:my-2 md:px-2 md:w-1/2">{<Expense/>}</div>
+<div class="my-3 px-3 w-1/2 overflow-hidden sm:my-2 sm:px-2 sm:w-full md:my-2 md:px-2 md:w-1/2"></div>
+<div class="my-3 px-3 w-1/2 overflow-hidden sm:my-2 sm:px-2 sm:w-full md:my-2 md:px-2 md:w-1/2">{<TransactionList/>}</div>
+
+</div>
+      <div>{<BuyCrypto/>}</div>
+      </>
+    )
+}
 
 export default Exchanges

@@ -5,8 +5,12 @@ import { Layout, Typography, Space } from 'antd';
 import { Exchanges, Homepage, News, Cryptocurrencies, CryptoDetails, Navbar } from './components';
 import './App.css';
 
+import { GlobalProvider } from './Hooks/GlobalState';
+
+
 const App = () => (
-  <div className="app">
+  <GlobalProvider>
+    <div className="app">
     <div className="navbar">
       <Navbar />
     </div>
@@ -41,12 +45,13 @@ const App = () => (
         </Typography.Title>
         <Space>
           <Link to="/">Home</Link>
-          <Link to="/exchanges">Trade/Invest</Link>
+          <Link to="/exchanges">PlayGround</Link>
           <Link to="/news">News</Link>
         </Space>
       </div>
     </div>
   </div>
+  </GlobalProvider>
 );
 
 export default App;
