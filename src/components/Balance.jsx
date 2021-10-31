@@ -1,3 +1,4 @@
+import millify from 'millify';
 import React, { useContext } from 'react';
 import { Globalcontext } from '../Hooks/GlobalState';
 
@@ -9,7 +10,7 @@ export const Balance = () => {
     return (
         <>
             <h4 className=" text-center my-4 mx-4 text-4xl">Your Balance</h4>
-            <h1 id="balance" className="text-2xl text-center py-20 font-bold text-green-400" >₹{total}</h1>
+            <h1 id="balance" className="text-2xl text-center py-20 font-bold text-green-400" >${millify(total)}</h1>
         </>
     )
 }
