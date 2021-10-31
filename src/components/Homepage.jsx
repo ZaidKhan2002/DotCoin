@@ -9,10 +9,10 @@ import News from './News';
 import Loader from './Loader';
 import {useAuth} from '../context/AuthContext'
 import { useHistory } from 'react-router'
-  const [error, setError] = useState('')
 const { Title } = Typography;
 
 const Homepage = () => {
+  const [error, setError] = useState('')
   const { data, isFetching } = useGetCryptosQuery(10);
   const globalStats = data?.data?.stats;
   // const {logout,currentUser} = useAuth()
