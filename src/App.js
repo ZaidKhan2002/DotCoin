@@ -11,6 +11,7 @@ import Signup from './components/Signup'
 import {AuthProvider} from './context/AuthContext'
 import PrivateRoute from './components/PrivateRoute';
 
+
 const App = () => (
   <GlobalProvider>
     <div className="app">
@@ -25,9 +26,9 @@ const App = () => (
             <Route exact path="/">
               <Homepage />
             </Route>
-            <PrivateRoute exact path="/exchanges">
+            <Route exact path="/exchanges">
               <Exchanges />
-            </PrivateRoute>
+            </Route>
             <Route exact path="/cryptocurrencies">
               <Cryptocurrencies />
             </Route>
