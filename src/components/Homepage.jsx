@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import millify from 'millify';
 import { Typography, Row, Col, Statistic } from 'antd';
 import { Link } from 'react-router-dom';
@@ -7,18 +7,34 @@ import { useGetCryptosQuery } from '../services/cryptoApi';
 import Cryptocurrencies from './Cryptocurrencies';
 import News from './News';
 import Loader from './Loader';
-
+import {useAuth} from '../context/AuthContext'
+import { useHistory } from 'react-router'
 const { Title } = Typography;
 
 const Homepage = () => {
+  const [error, setError] = useState('')
   const { data, isFetching } = useGetCryptosQuery(10);
   const globalStats = data?.data?.stats;
+  // const {logout,currentUser} = useAuth()
+  // const [error, setError] = useState('')
+  // const history = useHistory()
 
-  if (isFetching) return <Loader />;
-
+  // async function handleLogout() {
+  //   setError('')
+  //   try {
+  //       await logout()
+  //       history.push("/login")
+  //   }
+  //   catch{
+  //       setError('failed to log out')
+  //   }
+  // } 
+  if (isFetching) return <Loader />; 
+  
   return (
     <>
       <Title level={2} className="heading">Global Crypto Stats</Title>
+      {/* <button onClick = {()=> handleLogout()} className = "py-2 px-4 bg-blue-400 text-black">Logout</button> */}
       <Row gutter={[32, 32]}>
         <Col span={12}><Statistic title="Total Cryptocurrencies" value={globalStats.total} /></Col>
         <Col span={12}><Statistic title="Total Exchanges" value={millify(globalStats.totalExchanges)} /></Col>
