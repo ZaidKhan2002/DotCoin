@@ -6,7 +6,7 @@ import { Globalcontext } from '../Hooks/GlobalState'
 export const AddTransaction = () => {
   const [text, setText] = useState('');
   const [amount, setAmount] = useState('');
-
+ 
   const [transaction, setTransaction] = useState(() => {
     // get from localstorage
     const savedTransaction = localStorage.getItem('transaction');

@@ -9,6 +9,7 @@ import { GlobalProvider } from './Hooks/GlobalState';
 import Login from './components/Login'
 import Signup from './components/Signup'
 import {AuthProvider} from './context/AuthContext'
+import PrivateRoute from './components/PrivateRoute';
 
 const App = () => (
   <GlobalProvider>
@@ -24,9 +25,9 @@ const App = () => (
             <Route exact path="/">
               <Homepage />
             </Route>
-            <Route exact path="/exchanges">
+            <PrivateRoute exact path="/exchanges">
               <Exchanges />
-            </Route>
+            </PrivateRoute>
             <Route exact path="/cryptocurrencies">
               <Cryptocurrencies />
             </Route>

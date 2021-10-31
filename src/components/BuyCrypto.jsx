@@ -32,19 +32,19 @@ const BuyCrypto = ({simplified}) => {
       const { addTransaction } = useContext(Globalcontext);
 
       const cryptoBuying = props => {
-          console.log("Testing buying", props.slice(4))
-        const newTransaction = {
-        //   id: Math.floor(Math.random() * 10000000),
-          id: props.price,
-          text: props.name,
-          amount: props.price
-        }
-        addTransaction(newTransaction);
-        setTransaction([
-          ...transaction,
-          newTransaction
-        ])
-    
+          // console.log("Testing buying", props.slice(4))
+        // const newTransaction = {
+        // //   id: Math.floor(Math.random() * 10000000),
+        //   id: props.price,
+        //   text: props.name,
+        //   amount: props.price
+        // }
+        // addTransaction(newTransaction);
+        // setTransaction([
+        //   ...transaction,
+        //   newTransaction
+        // ])
+        console.log(props)
         //clear state for next transaction 
         // setText('')
         // setAmount()
@@ -89,7 +89,7 @@ const BuyCrypto = ({simplified}) => {
                                 <p>Price: {millify(currency.price)}</p>
                                 <p>Market Cap: {millify(currency.marketCap)}</p>
                                 <p>Daily Change: {millify(currency.change)}%</p>
-                                <button onClick={() => cryptoBuying(millify(currency.price))} class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">Buy</button>
+                                <button onClick={() => cryptoBuying(currency.price)} class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">Buy</button>
                             </Card>
                     </Col>
                 ))}
